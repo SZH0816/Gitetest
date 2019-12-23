@@ -1,0 +1,18 @@
+##应用名称
+spring:
+  application:
+    name: euraka-server
+
+    #声明当前 eurakaserver端口号
+server:
+  port: 8888
+#配置eureka
+eureka:
+  client:
+    #代表自己是否注册到注册中心去
+    register-with-eureka: false
+    #表明自己是注册中心
+    fetch-registry: false
+    #配置地址
+    service-url:
+      defaultZone: http://localhost:8888/eureka

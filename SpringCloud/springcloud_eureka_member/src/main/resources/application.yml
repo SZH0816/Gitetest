@@ -1,0 +1,16 @@
+  ##应用名称
+  spring:
+    application:
+      name: member-server
+
+      #声明当前 eurakaserver端口号
+  server:
+    port: 9001
+  #配置eureka
+  eureka:
+    client:
+
+
+      #配置地址
+      service-url:
+        defaultZone: http://localhost:8888/eureka

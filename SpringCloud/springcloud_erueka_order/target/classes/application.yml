@@ -1,0 +1,33 @@
+  ##应用名称
+  spring:
+    application:
+      name: order-server
+    main:
+      allow bean definition overriding: true
+      #声明当前 eurakaserver端口号
+  server:
+    port: 9002
+  #配置eureka
+  eureka:
+    client:
+      #配置地址
+      service-url:
+        defaultZone: http://localhost:8888/eureka
+
+    ##配置ribbon读取时间
+  ribbon:
+    ReadTimeout: 15000
+    ConnectTimeout: 15000
+  ##开启断路器
+  feign:
+    hystrix:
+      enabled: true
+  ##因为我们在members服务中线程休眠3s，服务调用默认超过1s当做调用失败，那么就会执行服务降级的类，我们可以配置服务响应时间
+  hystrix:
+    command:
+      default:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 4000
+
